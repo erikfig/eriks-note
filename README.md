@@ -1,26 +1,45 @@
 # Erik's Notes (erik-notes)
 
-Gerenciamento de anotações nativo no navegador
+Gerenciamento de anotações nativo multi-plataforma.
 
-## Install the dependencies
+** Em desenvolvimento**
+
+Versão web: [https://erikfig.github.io/eriks-note/](https://erikfig.github.io/eriks-note/)
+
+## Instalar dependências
+
 ```bash
 yarn
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Iniciar em modo desenvolvimento
+
+SPA
+
 ```bash
 quasar dev
 ```
 
-### Lint the files
+Desktop
+
 ```bash
-yarn run lint
+quasar dev -m electron
 ```
 
-### Build the app for production
+### Build para produção
+
+SPA
+
 ```bash
-quasar build
+quasar dev
 ```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+Desktop
+
+```bash
+quasar build -m electron -b builder
+```
+
+### Motivação para existência deste aplicativo
+
+Eu queria algo simples e leve que pudesse ficar no system tray sem atrapalhar meus apps abertos e que eu pudesse gerir minhas anotações facilmente e sem ter que continuar usando o Sublime para isso.
