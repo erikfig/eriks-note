@@ -6,6 +6,8 @@ Gerenciamento de anotações nativo multi-plataforma.
 
 Versão web: [https://erikfig.github.io/eriks-note/](https://erikfig.github.io/eriks-note/)
 
+Versão Windows: [https://github.com/erikfig/eriks-note/releases](https://github.com/erikfig/eriks-note/releases)
+
 ## Instalar dependências
 
 ```bash
