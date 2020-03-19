@@ -17,8 +17,25 @@ if (process.env.PROD) {
 }
 
 let mainWindow
+let tray
 
 function createWindow () {
+  const gotTheLock = app.requestSingleInstanceLock()
+
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized())
+        mainWindow.restore()
+      mainWindow.show();
+      mainWindow.focus()
+    }
+  })
+
+  if (!gotTheLock) {
+    app.quit();
+    return;
+  }
+
   /**
    * Initial window options
    */
@@ -70,7 +87,7 @@ function createWindow () {
     } }
   ]);
 
-  const tray = new Tray(path.join(__statics, '/logo-128x128.png'));
+  tray = new Tray(path.join(__statics, '/logo-128x128.png'));
   tray.setToolTip('Anotações.')
   tray.setContextMenu(contextMenu)
   tray.on('double-click', () => {
