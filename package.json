@@ -1,6 +1,6 @@
 {
   "name": "erik-notes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gerenciamento de anotações nativo no navegador",
   "productName": "Erik's Notes",
   "cordovaId": "org.cordova.quasar.app",

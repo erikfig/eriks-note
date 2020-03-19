@@ -70,7 +70,7 @@ function createWindow () {
     } }
   ]);
 
-  const tray = new Tray(path.join(__statics, '/app-logo-128x128.png'));
+  const tray = new Tray(path.join(__statics, '/logo-128x128.png'));
   tray.setToolTip('Anotações.')
   tray.setContextMenu(contextMenu)
   tray.on('double-click', () => {
