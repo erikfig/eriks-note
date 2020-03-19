@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { app, BrowserWindow, nativeTheme, Menu, Tray } from 'electron'
+import { app, BrowserWindow, nativeTheme, Menu, Tray, ipcMain } from 'electron'
 const path = require('path');
 
 try {
@@ -91,4 +91,20 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+const userDataPath = app.getPath('userData');
+const notesPath = path.join(userDataPath, 'notes.data');
+
+ipcMain.on('get-notes', (event, arg) => {
+  require('fs').readFile(notesPath, 'utf-8', (err, data) => {
+    if (err) {
+      data = '[]';
+    }
+    event.returnValue = data;
+  });
+})
+
+ipcMain.on('set-notes', (event, arg) => {
+  require('fs').writeFileSync(notesPath, arg);
 })
